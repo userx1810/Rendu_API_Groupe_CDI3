@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal</title>
+    <link rel="stylesheet" href="modal.css">
+</head>
+<body>
+    <h1>Echange tes cartes</h1>
+    <p>Pour faire cet échange, il va falloir renseigner le nom d'utilisateur de a personne avec qui tu vas echanger tes cartes, ton mail et ton mot de passe !</p>
+
+    <button class="button open-button">Open Modal</button>
+    <dialog class="modal" id="modal">
+        <h2>Attention après cet échange tu ne pourras pas retourner en arrière</h2>
+        <button class="button close-button">Close Modal</button> <!-- Correction de la classe close-button -->
+        <form id="form" method="dialog"> <!-- Correction de l'attribut "for" en "id" -->
+            <label>Nom d'utilisateur de l'autre sorcier <input type="text"></label>
+            <label>Ton Email <input type="email"></label>
+            <label>Ton mot de passe <input type="password"></label>
+            <button class="button" type="submit">Submit</button> <!-- Correction de l'attribut "class" -->
+        </form>
+    </dialog>
+    
+    <script src="modal.js"></script> <!-- Déplacer le script JavaScript à la fin du body pour assurer que les éléments HTML sont chargés avant le script -->
+</body>
+</html>

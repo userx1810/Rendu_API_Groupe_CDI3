@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harry Potter Characters</title>
+    <link rel="stylesheet" href="cartes.css">
+</head>
+
+<body>
+    <h1>CARTES HARRY POTTER</h1>    
+
+    <div id="characters" class="card-list-container"></div>
+
+    <script>
+        
+        // fonction pour afficher les personnages Harry Potter
+        async function fetchHarryPotterCharacters() {
+            try {
+                const response = await fetch('https://hp-api.lainocs.fr/characters');
+                return await response.json();
+            } catch (error) {
+                console.log('erreur', error);
+                return null;
+            }
+        }
+
+        async function displayHarryPotterCharacters() {
+            const characters = await fetchHarryPotterCharacters();
+            if (characters) {
+                const charactersContainer = document.querySelector('#characters');
+            // pour chaque personnage, on crée une carte
+                characters.forEach(character => {
+                    const characterElement = document.createElement('div');
+                    characterElement.classList.add('carte');
+                    // on remplit la carte avec le nom, la photo et la maison du personnage
+                    characterElement.innerHTML = `
+                        <img src="${character.image}" alt="${character.name}">
+                        <div class="details">
+                            <h2>${character.name}</h2>
+                            <p><strong>House:</strong> ${character.house}</p>
+                            <p><strong>Actor:</strong> ${character.actor}</p>
+                            <p><strong>Blood:</strong> ${character.ancestry}</p>
+                            <p><strong>Role:</strong> ${character.role}</p>
+                        </div>
+                    `;
+                    charactersContainer.appendChild(characterElement);
+                });
+            } else {
+                document.querySelector('#characters').innerHTML = 'erreur de chargement des données du personnage';
+            }
+        }
+
+//  appelle la fonction pour afficher les personnages Harry Potter
+        displayHarryPotterCharacters();
+    </script>
+</body>
+</html>

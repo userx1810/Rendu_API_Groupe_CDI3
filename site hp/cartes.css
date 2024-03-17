@@ -1,0 +1,72 @@
+
+body {
+    background-image: url(https://i.pinimg.com/564x/47/ea/fa/47eafa76f61e6b29af25b1d4262c35c9.jpg);
+}
+
+
+body h1 {
+    text-align: center;
+    color: #252c22; /* couleur du titre */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /*ombre sur le texte */
+    font-size: 36px; 
+    opacity: 1; 
+}
+
+/*  pour chaque carte */
+.card-list-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* mettre 3 cartes par ligne */
+    gap: 20px; /* espace entre les cartes */
+    padding: 20px; 
+    box-sizing: border-box;
+}
+
+
+/* design pour chaque carte */
+.carte {
+    border-radius: 10px; /* coins arrondis */
+    overflow: hidden; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* ombre  */
+    background-color: #2C3531; /* Couleur de fond de la carte */
+    color: #F7E7CE; 
+    transition: transform 0.3s ease; /* transition pr hover */
+    display: flex;
+    flex-direction: column;
+}
+
+/* image du perso */
+.carte img {
+    flex: 1;
+    width: 100%; 
+    height: auto; 
+    border-bottom: 4px solid #ddd; /* separer l'image et les données */
+}
+
+/* quand je passe la souris sur la carte */
+.carte:hover {
+    transform: translateY(-5px); /* vers le haut */
+}
+
+
+.details {
+    padding: 15px;
+}
+
+/* nom du personnage */
+.details h2 {
+    margin: 0; 
+    font-size: 30px; 
+    font-weight: bold; /* texte en gras */
+}
+
+
+.details p {
+    margin: 2px 0; 
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .card-list-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* reduire les colonnes */
+    }
+}

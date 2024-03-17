@@ -1,0 +1,142 @@
+.sidebar {
+    color: #fff; /* couleur du texte est blanc */
+    padding: 20px; /* un peu d'espace pour que ça respire */
+    position: fixed; /* collé  */
+    top: 0; /* en haut */
+    left: 0; /* tout à gauche */
+    bottom: 0; /* en bas */
+    width: 250px; /* largeur est de 250 px */
+    height: 100vh; /* hauteur = 100% de la hauteur de la fenêtre */
+    transition: transform 0.3s ease-in-out; /* une anim pour bouger doucement */
+    transform: translateX(-100%); /* fais bouger */
+}
+
+.menu.active ul {
+    display: block; /* bah on affiche la liste quand le menu est actif */
+}
+
+.bx-menu {
+    color: aliceblue; /* le menu a une couleur de aliceblue */
+    font-size: 30px; /* c'est gros */
+    cursor: pointer; /* quand tu pointes dessus, ça change de curseur */
+}
+
+* {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; /* on utilise cette police par défaut */
+    margin: 0; /* pas de marge, pas besoin */
+    padding: 0; /* ni de rembourrage */
+}
+
+.container {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.60), rgba(0, 0, 0, 0.60)), url(http://getwallpapers.com/wallpaper/full/0/7/d/263156.jpg); /* c'est le fond, faut pas le casser */
+    background-size: cover; /* il faut que ça couvre toute la surface */
+    width: 100%; /* prend toute la largeur */
+    height: 100vh; /* prend toute la hauteur de la fenêtre */
+    max-width: 4200px; /* mais pas trop */
+    margin: 0; /* pas de marge */
+    padding: 0; /* ni de rembourrage */
+    position: relative; /* c'est relatif */
+    margin-left: 0; /* pas de marge à gauche */
+    margin-right: 0; /* ni à droite */
+}
+
+.menu {
+    width: 85%; /* c'est large, mais pas trop */
+    margin: 0; /* pas de marge */
+    padding: 35px 0; /* pour laisser de la place en haut et en bas */
+    display: flex; /* en ligne */
+    align-items: center; /* on les aligne au centre */
+    justify-content: space-between; /* c'est bien réparti */
+}
+
+.menu ul {
+    list-style: none; /* liste */
+    padding: 0; /* pas de rembourrage */
+}
+
+.menu ul li {
+    position: relative; 
+    list-style: none; 
+    display: inline-block; /* côte à côte */
+    margin: 20px; /* espace autour */
+}
+
+.menu ul li a {
+    color: white; /* blanc */
+    text-decoration: none; /* pas de soulignage */
+    text-transform: uppercase; /* en majuscules */
+}
+
+.menu ul li::after {
+    background: gold; /* couleur d'or */
+    content: ''; /* pas de contenu */
+    width: 0; /* pas de largeur au début */
+    height: 3px; /* hauteur de la barre */
+    position: absolute; /* position absolue */
+    bottom: -8px; /* en bas un peu */
+    left: 0; /* tout à gauche */
+    transition: 0.5s; /* une anim */
+}
+
+.menu ul li:hover::after {
+    width: 100%; /* elle grandit quand je passe la souris */
+}
+
+.texte {
+    position: absolute; /* position absolue */
+    text-align: center; /* centré */
+    top: auto; /* automatique en haut */
+    left: 450px; /* à 450 pixels à gauche */
+    bottom: 400px; /* et 400 pixels en bas */
+    display: flex; /* en ligne */
+    color: rgb(255, 225, 59); /* couleur jaune */
+}
+
+.texte h1 {
+    font-size: 80px; /* très gros */
+    margin-top: 8px; /* un peu de marge en haut */
+}
+
+button {
+    width: 200px; /* largeur de 200 pixels */
+    padding: 15px 0; /* un peu de rembourrage en haut et en bas */
+    text-align: center; /* centré */
+    border-radius: 25px; /* coins arrondis */
+    font-weight: bold; /* en gras */
+    border: 2px solid rgb(165, 147, 55); /* une bordure pas trop épaisse */
+    background: transparent; /* fond transparent */
+    color: whitesmoke; /* couleur de texte */
+    cursor: pointer; /* curseur de pointage */
+    position: absolute; /* position absolue */
+    right: 20px; /* 20 pixels à droite */
+    bottom: 20px; /* et 20 en bas */
+    margin: 10px; /* un peu de marge */
+    overflow: hidden; /* rien ne dépasse */
+}
+
+button:hover {
+    transition: .4s linear; /* une anim */
+    background-color: goldenrod; /* couleur dorée */
+    font-size: 10px; /* un peu plus petit */
+}
+
+@media screen and (max-width: 1008px) {
+    /* cacher les liens cliquables */
+    .menu ul {
+        display: none; /* on ne les montre plus */
+    }
+
+    /* afficher la sidebar quand le menu est activé */
+    .sidebar.active {
+        transform: translateX(0); /* on la fait venir à nous */
+    }
+
+    .container {
+        margin-left: 0; /* rien à gauche */
+    }
+}
+
+
+    .container {
+        margin-left: 0;
+    }
